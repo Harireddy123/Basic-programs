@@ -29,7 +29,7 @@ namespace Demo
 
             // MonthAndDays.count();
 
-            Electricity.Calculate();
+            //Electricity.Calculate();
 
             //sum();
 
@@ -44,6 +44,19 @@ namespace Demo
             //PrintGrades();
 
             //arrayAvg();
+
+            //ArrayReverse();
+
+            // ArraySum();
+
+            //MaxMin();
+
+            //ReverseWords();
+
+            //MoveZeros();
+
+            Primes();
+
             
         }
         public static void sum()
@@ -148,5 +161,153 @@ namespace Demo
             Console.WriteLine(avg);
         }
 
+        public static void ArrayReverse()
+        {
+            Console.WriteLine("Enter the number of elements to be stored in array");
+            int n = int.Parse(Console.ReadLine());
+            int[] ar = new int[n];
+            for(int i = 0;i < n;i++)
+            {
+                ar[i] = int.Parse(Console.ReadLine());
+            }
+            for(int i=ar.Length-1;i>=0;i--)
+            {
+                Console.Write(ar[i] +" ");
+            }
+        }
+
+        public static void ArraySum()
+        {
+            Console.WriteLine("Enter the number of elements to be stored in array");
+            int n = int.Parse(Console.ReadLine());
+            int[] ar = new int[n];
+            int sum = 0;
+            for (int i = 0; i < n; i++)
+            {
+                ar[i] = int.Parse(Console.ReadLine());
+            }
+            for (int i = ar.Length - 1; i >= 0; i--)
+            {
+                sum = sum +ar[i];
+            }
+            Console.WriteLine(sum);
+        }
+
+        public static void MaxMin()
+        {
+            Console.WriteLine("Enter the number of elements in array");
+            int n = int.Parse(Console.ReadLine());
+            int[] ar = new int[n];
+            for(int i=0;i<n;i++)
+            {
+                ar[i] = int.Parse(Console.ReadLine()) ;
+            }
+            int large = ar[0];
+            for(int i=1;i<ar.Length;i++)
+            {
+                if (ar[i] > large)
+                {
+                    large = ar[i];
+                }
+            }
+            int small = ar[0];
+            for(int i=1;i<ar.Length;i++)
+            {
+                if (ar[i] < small)
+                {
+                    small = ar[i];
+                }
+            }
+            Console.WriteLine("Smallest element in array : " + small);
+            Console.WriteLine("Largest element in array : " +large);
+        }
+
+        public static void ReverseWords()
+        {
+            Console.WriteLine("Enter a String");
+            String s = Console.ReadLine();
+
+            String[] ar = s.Split(' ');
+
+            for(int i=ar.Length-1;i>=0;i--)
+            {
+                Console.Write(ar[i] + " ");
+            }
+        }
+
+        public static void MoveZeros()
+        {
+
+            Console.WriteLine("Enter the number elements in array");
+            int n = int.Parse(Console.ReadLine());
+            int[] ar = new int[n];
+            for(int k=0;k<n;k++)
+            {
+                ar[k] = int.Parse(Console.ReadLine()) ;
+            }
+
+            int i = 0, j = 0;
+
+            while(i<ar.Length && j<ar.Length)
+            {
+                if (ar[i] != 0)
+                {
+                    ar[j] = ar[i];
+                    i++;
+                    j++;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            while(j<ar.Length)
+            {
+                ar[j] = 0 ;
+                j++;
+            }
+
+             for(int a=0;a<ar.Length;a++)
+            {
+                Console.Write(ar[a] + " ");
+            }
+            
+
+        }
+
+        public static bool IsPrime(int n)
+        {
+             if(n<=1)
+            {
+                return false;
+            }
+            for (int i = 2; i <= n / 2; i++)
+            {
+                if (n % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static void Primes()
+        {
+            Console.WriteLine("Enter the number of elements in array");
+            int n = int.Parse(Console.ReadLine());
+            int[] ar = new int[n];
+            for(int i=0;i<n;i++)
+            {
+                ar[i] = int.Parse(Console.ReadLine());
+            }
+            
+            foreach(int i in ar)
+            {
+                if(IsPrime(i))
+                {
+                    Console.Write(i + " ");
+                }
+            }
+        }
     }
 }
